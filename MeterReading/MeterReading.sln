@@ -3,15 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34701.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading.API", "Reading\Reading.API.csproj", "{9E9A6B4C-C900-40A4-BE72-7CF3648E33CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reading.API", "Reading\Reading.API.csproj", "{9E9A6B4C-C900-40A4-BE72-7CF3648E33CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingTest", "ReadingTest\ReadingTest.csproj", "{CE3F029F-3AAF-4B53-8661-0E2388C61F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingTest", "ReadingTest\ReadingTest.csproj", "{CE3F029F-3AAF-4B53-8661-0E2388C61F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading.Application", "Reading.Application\Reading.Application.csproj", "{6565044D-4908-4890-9756-BA85ADB7EEAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reading.Application", "Reading.Application\Reading.Application.csproj", "{6565044D-4908-4890-9756-BA85ADB7EEAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading.Entity", "Reading.Entity\Reading.Entity.csproj", "{6BED24D5-C8AD-4E40-BC6C-107CB999538A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reading.Entity", "Reading.Entity\Reading.Entity.csproj", "{6BED24D5-C8AD-4E40-BC6C-107CB999538A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reading.Infrastructure", "Reading.Infrastructue\Reading.Infrastructure.csproj", "{C2F1BE76-426E-4D23-8A16-F3F22A50B071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reading.Infrastructure", "Reading.Infrastructue\Reading.Infrastructure.csproj", "{C2F1BE76-426E-4D23-8A16-F3F22A50B071}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reading.Application.Test", "Reading.Application.Test\Reading.Application.Test.csproj", "{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{A85E729A-005B-42ED-B5A3-80CD30A31013}"
+	ProjectSection(SolutionItems) = preProject
+		Account.sql = Account.sql
+		Reading.sql = Reading.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{53966ABA-AD11-42F4-956F-F3652F8B1AD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +49,17 @@ Global
 		{C2F1BE76-426E-4D23-8A16-F3F22A50B071}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2F1BE76-426E-4D23-8A16-F3F22A50B071}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2F1BE76-426E-4D23-8A16-F3F22A50B071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE3F029F-3AAF-4B53-8661-0E2388C61F64} = {53966ABA-AD11-42F4-956F-F3652F8B1AD8}
+		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555} = {53966ABA-AD11-42F4-956F-F3652F8B1AD8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4BB6D12-8F91-4116-8E26-2D982431F7BE}

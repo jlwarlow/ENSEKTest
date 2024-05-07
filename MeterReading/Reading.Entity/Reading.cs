@@ -1,6 +1,6 @@
 ﻿namespace Reading.Entity
 {
-    internal class Reading
+    public class Reading
     {
         public int AccountId { get; set; }
         public DateTime MeterReadingDateTime { get; set; }

@@ -1,3 +1,4 @@
+using Reading.Application;
 using Reading.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IRepository, Repository>();
+builder.Services.AddTransient<IProcessor, Processor>();
+builder.Services.AddTransient<IValidator, Validator>();
 
 var app = builder.Build();
 
