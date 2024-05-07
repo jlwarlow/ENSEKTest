@@ -2,6 +2,6 @@
 {
     public interface IAccountValidator
     {
-        Task<(bool valid, Entity.Account account)> Validate(string input);
+        string? Validate(string input, out Entity.Account? account);
     }
 }

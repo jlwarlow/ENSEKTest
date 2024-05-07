@@ -4,7 +4,7 @@ namespace Reading.Application
 {
     public class AccountValidator : IAccountValidator
     {
-        public Task<(bool valid, Account account)> Validate(string input)
+        public string? Validate(string input, out Entity.Account? account)
         {
             throw new NotImplementedException();
         }

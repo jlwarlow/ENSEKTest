@@ -6,42 +6,68 @@ namespace Reading.Application.Test
         private readonly ReadingValidator _sut = new();
 
         [TestMethod]
-        public async Task InvalidLine_Returns_Fail()
+        public void InvalidLine_Returns_Fail()
         {
             // Arrange
             var line = "Fail";
 
             // Act
-            var result = await _sut.Validate(line);
+            var result = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsFalse(result.valid);
+            Assert.IsTrue(result!.Contains("Expecting 3 fields in input"));
         }
 
         [TestMethod]
-        public async Task IncorrectNumber_Fields_Fail()
+        public void IncorrectNumber_Fields_Fail()
         {
             // Arrange
             var line = "2344,22/04/2019 09:24";
 
             // Act
-            var result = await _sut.Validate(line);
+            var result = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsFalse(result.valid);
+            Assert.IsTrue(result!.Contains("Expecting 3 fields in input"));
+        }
+        
+        [TestMethod]
+        public void Invalid_AccountId_Fail()
+        {
+            // Arrange
+            var line = "A,22/04/2019 09:24,12";
+
+            // Act
+            var result = _sut.Validate(line, out _);
+
+            // Assert
+            Assert.IsTrue(result!.Contains("Invalid AccountId in input"));
         }
 
         [TestMethod]
-        public async Task Invalid_MeterReading_Fail()
+        public void Invalid_MeterReadingDateTime_Fail()
+        {
+            // Arrange
+            var line = "1,Monday,12";
+
+            // Act
+            var result = _sut.Validate(line, out _);
+
+            // Assert
+            Assert.IsTrue(result!.Contains("Invalid MeterReadingDateTime in input"));
+        }
+
+        [TestMethod]
+        public async Task Invalid_MeterReadingValue_Fail()
         {
             // Arrange
             var line = "2344,22/04/2019 09:24,12T";
 
             // Act
-            var result = await _sut.Validate(line);
+            var result = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsFalse(result.valid);
+            Assert.IsTrue(result!.Contains("Invalid MeterReadingValue in input"));
         }
 
         [TestMethod]
@@ -51,24 +77,25 @@ namespace Reading.Application.Test
             var line = "2344,22/04/2019 09:24,-12";
 
             // Act
-            var result = await _sut.Validate(line);
+            var result = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsFalse(result.valid);
+            Assert.IsTrue(result!.Contains("Invalid MeterReadingValue in input"));
         }
 
         [TestMethod]
         public async Task Valid_MeterReading_Succeeds()
         {
             // Arrange
-            var line = "2344,22/04/2019 09:24,-12";
+            var line = "2344,22/04/2019 09:24,12";
 
             // Act
-            var result = await _sut.Validate(line);
+            Entity.Reading? reading;
+            var result = _sut.Validate(line, out reading);
 
             // Assert
-            Assert.IsTrue(result.valid);
-            Assert.IsNotNull(result.reading);
+            Assert.IsNull(result);
+            Assert.IsNotNull(reading);
         }
     }
 }
