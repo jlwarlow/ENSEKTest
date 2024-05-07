@@ -35,7 +35,7 @@
         public void Invalid_AccountId_Fail()
         {
             // Arrange
-            const string line = "A,John";
+            const string line = "A,John,Doe";
 
             // Act
             var error = _sut.Validate(line, out _);
@@ -48,13 +48,13 @@
         public void Invalid_FirstName_Fail()
         {
             // Arrange
-            const string line = "1,,12";
+            const string line = "2344,,Doe";
 
             // Act
             var error = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsTrue(error!.Contains($"Invalid FirstName in input ({error})"));
+            Assert.IsTrue(error!.Contains("Invalid FirstName in input"));
         }
 
         [TestMethod]
