@@ -23,6 +23,17 @@ namespace Reading.Infrastructure
                 });
             return result;
         }
-        
+
+        public async Task<Entity.Account?> Get(int accountId)
+        {
+            using var con = CreateConnection();
+            var result = await con.QueryAsync<Entity.Account>(
+                "SELECT AccountId, FirstName, LastName WHERE AccountId = @AccountId",
+                new
+                {
+                    accountId
+                });
+            return result?.FirstOrDefault();
+        }
     }
 }

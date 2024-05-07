@@ -18,7 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{A85E729A-005B-42ED-B5A3-80CD30A31013}"
 	ProjectSection(SolutionItems) = preProject
 		Account.sql = Account.sql
+		..\ENSEK Software Engineer Exercise Eir.pptx = ..\ENSEK Software Engineer Exercise Eir.pptx
+		..\Meter_Reading 2.csv = ..\Meter_Reading 2.csv
 		Reading.sql = Reading.sql
+		..\Test_Accounts 2.csv = ..\Test_Accounts 2.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{53966ABA-AD11-42F4-956F-F3652F8B1AD8}"

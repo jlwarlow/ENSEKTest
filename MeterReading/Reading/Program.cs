@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 builder.Services.AddTransient<IReadingRepository, ReadingRepository>();
 builder.Services.AddTransient<IProcessor, Processor>();
+builder.Services.AddTransient<IAccountProcessor, AccountProcessor>();
 builder.Services.AddTransient<IAccountValidator, AccountValidator>();
 builder.Services.AddTransient<IReadingValidator, ReadingValidator>();
 

@@ -2,6 +2,6 @@
 {
     public interface IProcessor
     {
-        int ProcessCSV(string csv);
+        Task<int> ProcessCSV(string csv);
     }
 }
