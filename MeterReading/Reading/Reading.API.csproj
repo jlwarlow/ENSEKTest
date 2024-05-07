@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Reading.Application\Reading.Application.csproj" />
-    <ProjectReference Include="..\Reading.Infrastructue\Reading.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Reading.Application;
 
 namespace Reading.API.Controllers
 {
@@ -7,10 +8,18 @@ namespace Reading.API.Controllers
     public class MeterReading : ControllerBase
     {
         private readonly ILogger<MeterReading> _logger;
+        private readonly IProcessor _processor;
 
-        public MeterReading(ILogger<MeterReading> logger)
+        public MeterReading(ILogger<MeterReading> logger, IProcessor processor)
         {
             _logger = logger;
+            _processor = processor;
+        }
+
+        [HttpGet]
+        public async Task<string> Hello()
+        {
+            return await Task.FromResult<string>("Hello");
         }
 
         [HttpPost]

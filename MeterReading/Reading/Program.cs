@@ -7,9 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddTransient<IRepository, Repository>();
+builder.Services.AddTransient<IAccountRepository, AccountRepository>();
+builder.Services.AddTransient<IReadingRepository, ReadingRepository>();
 builder.Services.AddTransient<IProcessor, Processor>();
-builder.Services.AddTransient<IValidator, Validator>();
+builder.Services.AddTransient<IAccountValidator, AccountValidator>();
+builder.Services.AddTransient<IReadingValidator, ReadingValidator>();
 
 var app = builder.Build();
 
