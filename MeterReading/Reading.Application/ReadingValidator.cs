@@ -40,7 +40,12 @@
 
         public bool NewReadingIsValid(Entity.Reading newReading, Entity.Reading lastReading)
         {
-            throw new NotImplementedException();
+            if (DateTime.Compare(newReading.MeterReadingDateTime, lastReading.MeterReadingDateTime) < 0)
+            {
+                return false;
+            }
+
+            return newReading.MeterReadingValue >= lastReading.MeterReadingValue;
         }
     }
 }

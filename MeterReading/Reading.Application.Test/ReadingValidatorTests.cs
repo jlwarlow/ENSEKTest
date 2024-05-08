@@ -96,5 +96,61 @@ namespace Reading.Application.Test
             Assert.IsNull(error);
             Assert.IsNotNull(reading);
         }
+
+        [TestMethod]
+        public void NewReading_Newer_Than_Old_Reading_Succeed()
+        {
+            // Arrange
+            var oldReading = new Entity.Reading(1, new DateTime(2024, 1, 1), 12);
+            var newReading = new Entity.Reading(1, new DateTime(2024, 2, 3), 24);
+
+            // Act
+            var result = _sut.NewReadingIsValid(newReading, oldReading);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void NewReading_Greater_Than_Old_Reading_Succeed()
+        {
+            // Arrange
+            var oldReading = new Entity.Reading(1, new DateTime(2024, 1, 1), 12);
+            var newReading = new Entity.Reading(1, new DateTime(2024, 1, 1), 24);
+
+            // Act
+            var result = _sut.NewReadingIsValid(newReading, oldReading);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void NewReading_Older_Than_Old_Reading_Rejected()
+        {
+            // Arrange
+            var oldReading = new Entity.Reading(1, new DateTime(2024, 2, 1), 12);
+            var newReading = new Entity.Reading(1, new DateTime(2024, 1, 1), 24);
+
+            // Act
+            var result = _sut.NewReadingIsValid(newReading, oldReading);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void NewReading_Smaller_Than_Old_Reading_Rejected()
+        {
+            // Arrange
+            var oldReading = new Entity.Reading(1, new DateTime(2024, 1, 1), 12);
+            var newReading = new Entity.Reading(1, new DateTime(2024, 2, 1), 10);
+
+            // Act
+            var result = _sut.NewReadingIsValid(newReading, oldReading);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
     }
 }
