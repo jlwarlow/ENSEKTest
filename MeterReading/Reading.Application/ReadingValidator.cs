@@ -33,14 +33,14 @@
                 return $"Invalid MeterReadingValue in input {values[2]}";
             }
 
-            reading = new Entity.Reading
-            {
-                AccountId = accountId,
-                MeterReadingDateTime = meterReadingDateTime,
-                MeterReadingValue = meterReadingValue
-            };
+            reading = new Entity.Reading(accountId, meterReadingDateTime, meterReadingValue);
 
             return null;
+        }
+
+        public bool NewReadingIsValid(Entity.Reading newReading, Entity.Reading lastReading)
+        {
+            throw new NotImplementedException();
         }
     }
 }
