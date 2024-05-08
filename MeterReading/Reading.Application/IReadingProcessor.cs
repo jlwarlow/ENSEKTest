@@ -1,6 +1,6 @@
 ﻿namespace Reading.Application
 {
-    public interface IProcessor
+    public interface IReadingProcessor
     {
         Task<int> ProcessCSV(string csv);
     }

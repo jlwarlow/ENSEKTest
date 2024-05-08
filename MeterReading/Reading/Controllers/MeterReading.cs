@@ -8,18 +8,27 @@ namespace Reading.API.Controllers
     public class MeterReading : ControllerBase
     {
         private readonly ILogger<MeterReading> _logger;
-        private readonly IProcessor _processor;
+        private readonly IReadingProcessor _readingProcessor;
 
-        public MeterReading(ILogger<MeterReading> logger, IProcessor processor)
+        public MeterReading(ILogger<MeterReading> logger, IReadingProcessor readingProcessor)
         {
             _logger = logger;
-            _processor = processor;
+            _readingProcessor = readingProcessor;
         }
 
         [HttpGet]
         public async Task<string> Hello()
         {
-            return await Task.FromResult<string>("Hello");
+            try
+            {
+                return await Task.FromResult<string>("Hello");
+            }
+            catch (Exception e)
+            {
+                var message = $"Exception in MeterReading.Hello : {e.Message}";
+                _logger.LogError(message);
+                throw;
+            }
         }
 
         [HttpPost]
