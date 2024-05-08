@@ -30,12 +30,10 @@ namespace Reading.Application
                     var account = await _accountRepository.Get(reading!.AccountId);
                     if (account != null)
                     {
-                        var lastReading = await _readingRepository.GetLastReading(reading!.AccountId);
-                        if (lastReading == null || _readingValidator.NewReadingIsValid(reading, lastReading))
-                        {
-                            await _readingRepository.Add(reading);
-                            processedCount++;
-                        }
+                        var lastReading = await _readingRepository.GetLastReading(reading.AccountId);
+                        if (lastReading != null && !_readingValidator.NewReadingIsValid(reading, lastReading)) continue;
+                        await _readingRepository.Add(reading);
+                        processedCount++;
                     }
                     else
                     {

@@ -58,7 +58,7 @@ namespace Reading.Application.Test
         }
 
         [TestMethod]
-        public void Invalid_MeterReadingValue_Fail()
+        public void Invalid_MeterReadValue_Fail()
         {
             // Arrange
             const string line = "2344,22/04/2019 09:24,12T";
@@ -67,7 +67,7 @@ namespace Reading.Application.Test
             var error = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsTrue(error!.Contains("Invalid MeterReadingValue in input"));
+            Assert.IsTrue(error!.Contains("Invalid MeterReadValue in input"));
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace Reading.Application.Test
             var result = _sut.Validate(line, out _);
 
             // Assert
-            Assert.IsTrue(result!.Contains("Invalid MeterReadingValue in input"));
+            Assert.IsTrue(result!.Contains("Invalid MeterReadValue in input"));
         }
 
         [TestMethod]

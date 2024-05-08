@@ -61,7 +61,12 @@ namespace TestClient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TestClient\n\n1) Account Test\n2) Readings Test\n3) Exit.
+        ///   Looks up a localized string similar to TestClient
+        ///
+        ///1) Account Test
+        ///2) Readings Test
+        ///3) Exit
+        ///.
         /// </summary>
         internal static string Introduction {
             get {

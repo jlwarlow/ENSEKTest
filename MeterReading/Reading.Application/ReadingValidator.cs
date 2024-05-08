@@ -15,7 +15,7 @@
 
             if (values.Length != 3)
             {
-                return "Expecting 3 fields in input (AccountId, MeterReadingDate, MeterReadingValue";
+                return "Expecting 3 fields in input (AccountId, MeterReadingDate, MeterReadValue";
             }
 
             if (!int.TryParse(values[0], out var accountId))
@@ -28,12 +28,12 @@
                 return $"Invalid MeterReadingDateTime in input {values[1]}";
             }
 
-            if (!int.TryParse(values[2], out var meterReadingValue) || meterReadingValue < 0)
+            if (!int.TryParse(values[2], out var meterReadValue) || meterReadValue < 0)
             {
-                return $"Invalid MeterReadingValue in input {values[2]}";
+                return $"Invalid MeterReadValue in input {values[2]}";
             }
 
-            reading = new Entity.Reading(accountId, meterReadingDateTime, meterReadingValue);
+            reading = new Entity.Reading(accountId, meterReadingDateTime, meterReadValue);
 
             return null;
         }
@@ -45,7 +45,7 @@
                 return false;
             }
 
-            return newReading.MeterReadingValue >= lastReading.MeterReadingValue;
+            return newReading.MeterReadValue >= lastReading.MeterReadValue;
         }
     }
 }

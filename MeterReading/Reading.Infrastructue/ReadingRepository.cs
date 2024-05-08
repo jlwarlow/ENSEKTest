@@ -13,12 +13,12 @@ namespace Reading.Infrastructure
         {
             using var con = CreateConnection();
             var result = await con.ExecuteAsync(
-                "INSERT INTO Reading(AccountId, MeterReadingDateTime, MeterReadingValue) VALUES (@AccountId, @MeterReadingDateTime, @MeterReadingValue)",
+                "INSERT INTO Reading(AccountId, MeterReadingDateTime, MeterReadValue) VALUES (@AccountId, @MeterReadingDateTime, @MeterReadValue)",
                 new
                 {
                     reading.AccountId,
                     reading.MeterReadingDateTime,
-                    reading.MeterReadingValue
+                    reading.MeterReadValue
                 });
             return result;
         }
@@ -27,12 +27,12 @@ namespace Reading.Infrastructure
         {
             using var con = CreateConnection();
             var result = await con.QueryAsync<Entity.Reading>(
-                "SELECT TOP 1 AccountId, MeterReadingDateTime, MeterReadingValue FROM Reading WHERE AccountId = @AccountId ORDER by MeterReadingDateTime DESC",
+                "SELECT TOP 1 AccountId, MeterReadingDateTime, MeterReadValue FROM Reading WHERE AccountId = @AccountId ORDER by MeterReadingDateTime DESC",
                 new
                 {
                     accountId
                 });
-            return result?.FirstOrDefault();
+            return result.FirstOrDefault();
         }
     }
 }

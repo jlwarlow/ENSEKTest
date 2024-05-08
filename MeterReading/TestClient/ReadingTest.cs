@@ -4,12 +4,12 @@ using TestClient.Properties;
 
 namespace TestClient
 {
-    public class AccountTest : ITest
+    public class ReadingTest : ITest
     {
         public async Task Run()
         {
-            var url = ConfigurationManager.AppSettings["BaseUrl"] + "/Account";
-            var csv = Resources.Test_Accounts_2;
+            var url = ConfigurationManager.AppSettings["BaseUrl"] + "/meter-reading-uploads";
+            var csv = Resources.Meter_Reading_2;
             var csvStringContent = new StringContent(csv, Encoding.UTF8, "text/plain");
 
             using var client = new HttpClient();

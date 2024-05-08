@@ -35,7 +35,7 @@ namespace Reading.Application.Test
             _mockReadingRepository.Setup(x => x.Add(It.IsAny<Entity.Reading>())).Callback<Entity.Reading>(y => inserted = y);
             var validAccount = new Account(accountId: 1, firstName: "John", lastName: "Doe");
             var validReading = new Entity.Reading(accountId: 1, meterReadingDateTime: new DateTime(2024, 1, 1),
-                meterReadingValue: 1234);
+                meterReadValue: 1234);
             _mockReadingValidator.Setup(x => x.Validate(It.IsAny<string>(), out validReading)).Returns((string?)null);
             _mockAccountRepository.Setup(x => x.Get(It.IsAny<int>())).ReturnsAsync(validAccount);
 

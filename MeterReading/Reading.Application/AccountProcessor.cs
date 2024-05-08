@@ -1,5 +1,4 @@
-﻿using Azure.Identity;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Reading.Infrastructure;
 
 namespace Reading.Application
@@ -29,12 +28,13 @@ namespace Reading.Application
                     var existingAccount = await _accountRepository.Get(account!.AccountId);
                     if (existingAccount == null)
                     {
-                        await _accountRepository.Add(account!);
+                        await _accountRepository.Add(account);
                     }
                 }
                 else
                 {
-                    _logger.LogDebug($"Account Processor Seed failed to process line : {error}");
+                    var message = $"Account Processor Seed failed to process line : {error}";
+                    _logger.LogDebug(message);
                 }
             }
         }

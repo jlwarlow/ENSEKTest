@@ -1,32 +1,30 @@
-﻿using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Reading.Application;
+using System.Text;
 
 namespace Reading.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class AccountController : ControllerBase
+    [Route("meter-reading-uploads")]
+    public class MeterReadingController : ControllerBase
     {
-        private readonly ILogger<AccountController> _logger;
-        private readonly IAccountProcessor _processor;
+        private readonly ILogger<MeterReadingController> _logger;
+        private readonly IReadingProcessor _readingProcessor;
 
-        public AccountController(ILogger<AccountController> logger, IAccountProcessor processor)
+        public MeterReadingController(ILogger<MeterReadingController> logger, IReadingProcessor readingProcessor)
         {
             _logger = logger;
-            _processor = processor;
+            _readingProcessor = readingProcessor;
         }
 
         [HttpPost]
-        [Consumes("text/plain")]
-        public async Task Seed()
+        public async Task<int> Process()
         {
-#if DEBUG
             try
             {
                 using var reader = new StreamReader(Request.Body, Encoding.UTF8);
                 var csv = await reader.ReadToEndAsync();
-                await _processor.Seed(csv);
+                return await _readingProcessor.ProcessCSV(csv);
             }
             catch (Exception e)
             {
@@ -34,7 +32,6 @@ namespace Reading.API.Controllers
                 _logger.LogDebug(message);
                 throw;
             }
-#endif
         }
     }
 }

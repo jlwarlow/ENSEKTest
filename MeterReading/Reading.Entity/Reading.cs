@@ -2,15 +2,19 @@
 {
     public class Reading
     {
-        public Reading(int accountId, DateTime meterReadingDateTime, int meterReadingValue)
+        public Reading()
+        {
+        }
+
+        public Reading(int accountId, DateTime meterReadingDateTime, int meterReadValue)
         {
             AccountId = accountId;
             MeterReadingDateTime = meterReadingDateTime;
-            MeterReadingValue = meterReadingValue;
+            MeterReadValue = meterReadValue;
         }
 
         public int AccountId { get; set; }
         public DateTime MeterReadingDateTime { get; set; }
-        public int MeterReadingValue { get; set; }
+        public int MeterReadValue { get; set; }
     }
 }

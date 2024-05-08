@@ -5,7 +5,7 @@ using TestClient.Properties;
 
 for(;;)
 {
-    Console.WriteLine(Resources.Introduction);
+    Console.Write(Resources.Introduction);
 
     var selection = Console.ReadKey().KeyChar;
 
