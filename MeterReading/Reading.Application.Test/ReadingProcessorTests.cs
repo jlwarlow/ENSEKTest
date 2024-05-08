@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client;
 using Moq;
 using Reading.Entity;
 using Reading.Infrastructure;
@@ -43,7 +42,7 @@ namespace Reading.Application.Test
             // Act
             await _sut.ProcessCSV(csv);
 
-            _mockAccountRepository.Verify(x => x.Add(It.IsAny<Account>()), Times.Once);
+            _mockReadingRepository.Verify(x => x.Add(It.IsAny<Entity.Reading>()), Times.Once);
             Assert.AreEqual(validReading, inserted);
         }
     }
