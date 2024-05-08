@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text;
+using Microsoft.AspNetCore.Mvc;
 using Reading.Application;
 
 namespace Reading.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly ILogger<AccountController> _logger;
@@ -17,10 +18,13 @@ namespace Reading.API.Controllers
         }
 
         [HttpPost]
-        public async Task Seed([FromBody] string csv)
+        [Consumes("text/plain")]
+        public async Task Seed()
         {
             try
             {
+                using var reader = new StreamReader(Request.Body, Encoding.UTF8);
+                var csv = await reader.ReadToEndAsync();
                 await _processor.Seed(csv);
             }
             catch (Exception e)

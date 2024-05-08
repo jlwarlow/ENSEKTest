@@ -15,7 +15,8 @@ namespace Reading.Infrastructure
 
         protected IDbConnection CreateConnection()
         {
-            var connection = new SqlConnection(Configuration.GetConnectionString("MeterReadingsDBConnection"));
+            var connectionString = Configuration.GetConnectionString("MeterReadingsDBConnection");
+            var connection = new SqlConnection(connectionString);
             return connection;
         }
     }

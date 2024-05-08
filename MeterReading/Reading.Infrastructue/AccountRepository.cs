@@ -14,7 +14,7 @@ namespace Reading.Infrastructure
         {
             using var con = CreateConnection();
             var result = await con.ExecuteAsync(
-                "INSERT INTO Account(AccountId, FirstName, Surname) VALUES (@AccountId, @FirstName, @Surname) EXCEPT SELECT AccountId, Firstname, Surname FROM Account WHERE AccountId = @AccountId",
+                "INSERT INTO Account(AccountId, FirstName, LastName) VALUES (@AccountId, @FirstName, @LastName)",
                 new
                 {
                     account.AccountId,
@@ -28,7 +28,7 @@ namespace Reading.Infrastructure
         {
             using var con = CreateConnection();
             var result = await con.QueryAsync<Entity.Account>(
-                "SELECT AccountId, FirstName, LastName WHERE AccountId = @AccountId",
+                "SELECT AccountId, FirstName, LastName FROM Account WHERE AccountId = @AccountId",
                 new
                 {
                     accountId

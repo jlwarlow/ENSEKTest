@@ -19,12 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Account.sql = Account.sql
 		..\ENSEK Software Engineer Exercise Eir.pptx = ..\ENSEK Software Engineer Exercise Eir.pptx
-		..\Meter_Reading 2.csv = ..\Meter_Reading 2.csv
 		Reading.sql = Reading.sql
-		..\Test_Accounts 2.csv = ..\Test_Accounts 2.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{53966ABA-AD11-42F4-956F-F3652F8B1AD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestClient", "TestClient", "{13C75A31-BEF5-4E9E-B55D-192D8DF9DA7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CE3F029F-3AAF-4B53-8661-0E2388C61F64} = {53966ABA-AD11-42F4-956F-F3652F8B1AD8}
 		{D5DCC36F-8209-4EEE-BB37-9BDF68BB8555} = {53966ABA-AD11-42F4-956F-F3652F8B1AD8}
+		{FFA3F9E8-7B8F-49F5-92C4-4D91EDA6A885} = {13C75A31-BEF5-4E9E-B55D-192D8DF9DA7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4BB6D12-8F91-4116-8E26-2D982431F7BE}

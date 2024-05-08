@@ -12,7 +12,6 @@
     },
     "https": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "meter-reading-uploads",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

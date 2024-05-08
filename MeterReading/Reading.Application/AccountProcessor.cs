@@ -25,6 +25,7 @@ namespace Reading.Application
                 var error = _accountValidator.Validate(line, out var account);
                 if (error == null)
                 {
+                    
                     var existingAccount = await _accountRepository.Get(account!.AccountId);
                     if (existingAccount == null)
                     {
