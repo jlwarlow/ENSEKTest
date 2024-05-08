@@ -16,21 +16,6 @@ namespace Reading.API.Controllers
             _readingProcessor = readingProcessor;
         }
 
-        [HttpGet]
-        public async Task<string> Hello()
-        {
-            try
-            {
-                return await Task.FromResult<string>("Hello");
-            }
-            catch (Exception e)
-            {
-                var message = $"Exception in MeterReading.Hello : {e.Message}";
-                _logger.LogError(message);
-                throw;
-            }
-        }
-
         [HttpPost]
         public int Process(string csv)
         {
